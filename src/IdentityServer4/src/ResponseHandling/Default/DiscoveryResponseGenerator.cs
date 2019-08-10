@@ -392,7 +392,7 @@ namespace IdentityServer4.ResponseHandling
                         {
                             kty = "EC",
                             use = "sig",
-                            crv = "P-256",
+                            crv = CryptoHelper.GetCrvValueFromCurve(parameters.Curve),
                             kid = x509Key.KeyId,
                             x5t = thumbprint,
                             x = x,
@@ -436,7 +436,7 @@ namespace IdentityServer4.ResponseHandling
                         kty = "EC",
                         use = "sig",
                         kid = ecdsaKey.KeyId,
-                        crv = "P-256",
+                        crv = CryptoHelper.GetCrvValueFromCurve(parameters.Curve),
                         x = x,
                         y = y,
                         alg = algorithm
